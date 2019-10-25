@@ -224,7 +224,8 @@
 
 
 - 但是还是会报错
-  - 原因就是 ; name 没有写到webpack 里面
+  - 原因就是 : name 没有写到webpack 里面
+  - ==打包之后也会相应的生成文件夹  img  打包的图片放在里面==
 
 ![](assets\loader-9.jpg)
 
