@@ -19,8 +19,8 @@ Vue.js知识量化
 ## 简单认识
 
 - Vue是view 的法语发音,作用就是代替``mvc中``的`v`
-- Vue是一个渐进式框架  什么是渐进式?
-  - 项目老旧 用vue 重构时 , 不用推倒重来 , 把Vue页面作为项目的一部分嵌入 , 逐步迭代掉老项目 
+- Vue是一个渐进式框架  什么是「渐进式」?
+  - 项目老旧 用vue 重构时 , 不用推倒重来 , 把Vue页面作为项目的一部分嵌入 , **逐步迭代**掉老项目 
   - 举个例子:  项目有x个页面 ,  全部用jQuery , 可以用Vue一个页面一个页面的去重构, 同时不影响到整个项目
 
 - Vue的特点和Web开发中的高级功能
@@ -86,21 +86,30 @@ new Veu({
 
 ## 小结
 
-![](C:\Users\lenovo\Documents\一“桶”前端\myNote\vue\assets\vue-小马哥-2.jpg)
+![](assets\vue-小马哥-2.jpg)
 
 
 
 # Vue中mvvm
 
-![](C:\Users\lenovo\Documents\一“桶”前端\myNote\vue\assets\vue mvvm.jpg)
+![](assets\vue mvvm.jpg)
 
-![](C:\Users\lenovo\Documents\一“桶”前端\myNote\vue\assets\mvvm-解读.jpg)
-
-
+![](assets\mvvm-解读.jpg)
 
 
 
+- ViewModel 层
 
+  - 是View和 Model的桥梁
+  - 干两件事
+    - Data Binding    数据绑定   
+      - 由于Vue响应式 , 意思就是Model层的改变会实时的反应到View 中
+    - DOM  Listenner   文档监听
+      - 监听事件 , 在需要时改变data   
+
+  
+
+ 
 
 
 
