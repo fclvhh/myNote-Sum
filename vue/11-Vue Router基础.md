@@ -1,6 +1,40 @@
 # 什么是路由?
 
-![](assets\什么是路由.jpg)
+**参考**![](assets\什么是路由.jpg)
+
+
+
+## 首先搞明白什么是路由器
+
+- 路由器: 接收数据包,转发数据包的机器
+  - 两个核心功能
+  - ①路由功能: 决定数据包  转发的路径
+  - ②转发功能 : 把数据包转发给下一个处理者「可以是路由器,也可使服务器」
+- 路由 :  决定信息传递的路径
+  - 如何决定的?
+    - 路由表 !    映射数据包和转发路径的一个**映射表**
+- **路由的本质就是  映射关系**
+
+
+
+## 编程领域为什么要借用路由的概念?
+
+![](assets\引入路由概念.png)
+
+**我们发现 : url和页面存在映射关系, 这种关系恰好和路由器中路由的概念一样** 
+
+凡是对数据的处理都可以称之为 render :
+
+- 服务器对数据的拼接 –-->后端渲染
+- 浏览器对把内存的数据展示到视窗 –-->引擎渲染
+- 前端通过js在浏览器的中完成数据拼接--->前端渲染
+
+数据处理:
+
+1. 拼接
+2. 展示
+
+
 
 
 
@@ -62,7 +96,7 @@
 
   
 
-  
+  [前端路由发展史mind](https://mm.edrawsoft.cn/map.html?obj=qqD062E720CDD5EFDAC9AE87117B50AC48/Personal/Vue/%E7%BB%84%E4%BB%B6/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%8F%91%E5%B1%95%E5%8F%B2.emmx)
 
 # 前端路由
 
@@ -96,67 +130,120 @@
 
 # 安装和使用Vue-router
 
+**参考**
+
  ![](assets\Vue-router-1.jpg)
 
+## 总体思路
+
+〖在模块化工程中使用〗    注重理解
+
+- ① 创建router对象, 导出并挂载到Vue实例
+- ② 导入组件, 用选项route , 配置路径和组件的映射
+- ③ 在Vue根组件「App.vue」的 template模板中, 使用对应的跳转
+
+〖实际开发中使用Vue-router〗
+
+- ![](assets\Vue-router-21.jpg)
+
+## router对象相关
+
 - 安装Vue-router 插件
-- src文件夹
+  - vue-cli 那里勾选就直接安装了
+  - 下面的内容都是为了方便理解,人工演示的
+  - 正常情况下,不需要自己弄
+- 来到src文件夹
   - 新建一个router 文件夹
     - 新建一个  index.js
-      - 在里面配置路由信息
+    - 在里面「配置路由信息」
   - 如何配置路由信息?
-    - 导入路由插件  和 Vue的js文件 (后面要用到)
+    - 一:导入VueRouter插件  和 Vue的js文件 (后面要用到)
     - ![](assets\Vue-router-3.jpg)
     - 安装插件
       - `Vue.use(VueRouter)`
     - 创建`VueRouter`实例对象
       - 和创建Vue的实例  过程类似
-    - 把实例对象传入到Vue的实例中去
+    - **把实例对象传入到Vue的实例中去**
       - 自然 , 自身要导出
       - Vue的实例要导入
-- ![](assets\Vue-router-2.jpg)
+
+==**图片过程**==
+
+〖核心总结:〗: ①创建Vue-router对象  「在自身文件夹下的js文件创建」   ②导出   
+
+​						③挂载: 把router对象导入,挂载到Vue实例中去
+
+**前面的实现效果 1**![](assets\Vue-router-路由表的实现1.jpg)
+
+**把router数组抽取出来** ![](assets\Vue-router-路由表的实现3.jpg)
+
+**完成Vue实例挂载router对象**![](assets\Vue-router-路由表的实现2.jpg)
 
 - 我们在routers 数组中 , 配置映射关系
-- 挂载到Vue的实例中去
-  - ![](assets\Vue-router-4.jpg)
+
+  
 
 
 
 
 
-# 配置路由映射
+## 配置路由映射关系
 
-- routers数组中的一个对象 , 就是一个映射关系
-- 这个对象里面 两个键值对
-  - path : “xxx”
+- routers数组中的一个对象 , 就是一个映射关系**「一个对象就是一个映射关系」**
+
+- 这个对象里面 两个键值对  **「对象内部属性」**
+  - path : “xxx”      「url太长,path表示相对地址」
   - component ; "xxx"
-- ![](assets\Vue-router-5.jpg)
+  - **两个属性完成路径和组件的映射**
+  
+- 具体完成过程图示![](C:\Users\lenovo\Documents\一“桶”前端\myNote\vue\assets\Vue-router-路由表的实现4.jpg)
 
-- 在Vue实例的根组件上 , 引入路由
+  
+
   - VueRouter插件定义的全局组件`router-link-to `
   - 在根组件的template 里面使用
   - 这个`router-link-to`最终会被渲染成 a 标签的 
+
 - `router-view` 占位符     决定 组件在什么位置显示
 
 
 
-![](assets\Vue-router-6.jpg)
+## 实现点击跳转功能
+
+〖核心思想〗: 
+
+①模拟a标签的功能,点击就根据src属性进行跳转
+
+②「router-link 全局组件」代替了a标签
+
+③to 属性代替了 src属性 ,跳转的也不是页面而是组件  「跳转到组件」
+
+④「router-view全局标签」决定〔**组件展示**〕在什么位置
+
+**图示**![](assets\Vue-router-路由表的实现5.jpg)
 
 
 
 
 
+# 设置首页
 
+**参考**![](assets\Vue-router-7.jpg)
 
-# 路由的默认路径
+〖如何设置首页〗
 
-![](assets\Vue-router-7.jpg)
+① 新建路由映射  ==>router数组里面添加一个对象
+
+② 对象的属性: path 属性+ 「redirect属性」
+
+③ path:"/"  默认首页路径, **重定向到home组件**
 
 
 
 ## 路径修改成history模式
 
--  在 index.js文件 `VurRouter`构造函数中 , 传入的选项对象中
-  - 增加键值对
+-  在 index.js文件 `VueRouter`构造函数中 , 传入的选项对象中
+  - 增加属性 「mode :  ''history’'」
   - mode :  `history`
 - ![](assets\Vue-router-8.jpg)
 
@@ -182,10 +269,17 @@
 
 # 通过代码方式实现路由跳转
 
-- $router  实例属性  
-- 是VueRouter对象 给每一个组件 注入的属性
+〖代码实现跳转〗
 
-![](assets\Vue-router-11.jpg)
+①不再是用router-link组件
+
+②利用js代码模拟 组件  「$router属性」
+
+![](assets\Vue-router-路由表的实现6.jpg)
+
+
+
+
 
 
 
