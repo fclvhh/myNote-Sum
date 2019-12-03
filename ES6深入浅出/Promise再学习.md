@@ -24,5 +24,29 @@ Promise的三种状态![](assets\Promise-5.jpg)
 
 ![](assets\Promise-6.jpg)
 
-![](assets\Promise-7.jpg)
+Promise的第二种写法![](assets\Promise-7.jpg)
+
+
+
+
+
+# Promise的链式调用
+
+![](assets\Promise-8.jpg)
+
+new Promise的优化
+
+![](assets\Promise-9.jpg)
+
+进一步省略
+
+![](assets\Promise-10.jpg)
+
+
+
+reject() 省略也是同理, 只不过不是来到then()去执行,而是转到catch()去执行!!!
+
+简化1![](assets\Promise-11.jpg)
+
+最终简化![](assets\Promise-12.jpg)
 
