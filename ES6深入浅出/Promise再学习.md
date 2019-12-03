@@ -50,3 +50,31 @@ reject() 省略也是同理, 只不过不是来到then()去执行,而是转到ca
 
 最终简化![](assets\Promise-12.jpg)
 
+
+
+# Promise的API 了解
+
+## all()
+
+为什么会出现all()
+
+![](assets\Promise-13.jpg)
+
+上面写的太麻烦了!!!
+
+all( )优化
+
+![](assets\Promise-14.jpg)
+
+
+
+注意上面都是伪代码, 不能执行的
+
+
+
+可以执行的代码
+
+![](assets\Promise-15.jpg)
+
+
+
