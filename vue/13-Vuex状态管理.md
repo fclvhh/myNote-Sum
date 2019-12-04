@@ -82,3 +82,93 @@ Devtools是一个浏览器插件,根据Mutation负责管理state的修改记录,
 
 知道当出问题的时候,就知道是哪一个组件修改了state造成了错误, 方便我们寻找错误的!
 
+## 案例实现
+
+⒈![](assets\Vuex-7.jpg)
+
+⒉![](assets\Vuex-8.jpg)
+
+⒊![](assets\Vuex-9.jpg)
+
+
+
+
+
+# Vuex核心概念
+
+## State单一状态树
+
+说人话: 就是指创建一个store对象 , 换句话说就是单例
+
+好处 : 
+
+ 多个系统分管信息,虽然信息得到了有效的分发 , 但是当想把信息整合时,就会发现要花费大量的时间,
+
+去每一个小系统下载信息
+
+这太麻烦了
+
+单一系统, 没有这样的问题
+
+![](assets\Vuex-10.jpg)
+
+
+
+## Getters基本使用
+
+相当于Vuex的计算属性
+
+![](assets\Vuex-11.jpg)
+
+![](assets\Vuex-12.jpg)
+
+Getters用法深入
+
+![](assets\Vuex-13.jpg)
+
+
+
+动态设置过滤条件
+
+![](assets\Vuex-14.jpg)
+
+![](assets\Vuex-15.jpg)
+
+
+
+## mutations使用
+
+①基本使用
+
+![](assets\Vuex-16.jpg)
+
+
+
+②传递参数
+
+![](assets\Vuex-20.jpg)
+
+案例实现
+
+⒈![](assets\Vuex-17.jpg)
+
+⒉![](assets\Vuex-18.jpg)
+
+⒊![](assets\Vuex-19.jpg)
+
+
+
+③提交风格
+
+![](assets\Vuex-21.jpg)
+
+![](assets\Vuex-22.jpg)
+
+
+
+④响应规则
+
+
+
+
+
