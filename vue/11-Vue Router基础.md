@@ -381,3 +381,4 @@
     - 传递后形成的路径 : /router?id=xxx
 - 关于 query
   - URL : 协议:// host 端口(默认80, 浏览器一般省了)/ path? query参数
+

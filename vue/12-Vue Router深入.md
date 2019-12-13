@@ -314,7 +314,7 @@ Vue对象的声明周期函数
 
 
 
-## 组件效果
+## 🎈组件效果
 
 ① 活跃效果和没点击的效果
 
@@ -346,4 +346,140 @@ p121-p124 四节 感受到基础不牢
 但是时间问题,把下面的知识学完,之后一点一滴的逐步解决!!!
 
 
+
+
+
+## 路由功能
+
+### 前置
+
+```shell
+npm install vue-router --save
+```
+
+Vue.use() 使用插件
+
+touter文件夹  index.js
+
+
+
+### 目录
+
+view 文件夹装页面组件
+
+home子文件夹, 用来装 首页相关的页面组件
+
+
+
+配置路由映射对象  path  componnet
+
+注意懒加载 + /路径的 重定向
+
+
+
+
+
+### 🎈跳转
+
+main-tabber 组件 作为 tanbar 和 tabbar-item的根组件
+
+抽离的意义是为了简化App根组件
+
+我们在 main-tabbar 组件 具体实现tabbar功能
+
+
+
+①点击跳转
+
+事件触发的回调函数内部的代码
+
+```javascript
+this.$router.replace(path)
+```
+
+执行这句代码可以让改变path, 路由根据映射跳转到对应的组件页面
+
+
+
+如何拿到path?
+
+main-tabbar 作为一个内容根组件   传递path 给子组件
+
+自然想到:
+
+子组件 props 拿到path 
+
+父组件  通过属性  传递path
+
+由于path是写死的, 不用绑定属性从data里拿 , 直接属性写死 , 就可以拿到了
+
+```
+<tab-bar-item link="/xx" >
+//个性代码
+</tab-bar-item>
+```
+
+
+
+
+
+## tab-bar-item 的颜色控制
+
+选中高亮功能
+
+思路:
+
+点击一个item时候,跳转时 , item变色
+
+⒈icon变色
+
+两个img,控制展示那一张
+
+采用v-show 命令   true 展示 , false不展示
+
+⒉text变色
+
+绑定style
+
+
+
+解决问题的核心关键在于,**如何判断跳转完成了**
+
+```javascript
+this.$route.path.indexOf(this.link) !== -1
+```
+
+拿到当前路由的 路径
+
+和父组件传下来的 路径比较  就可以得到最重要的布尔值了
+
+
+
+用计算属性
+
+
+
+⒊v-show所需要的布尔值拿到了
+
+style计算属性实现
+
+```javascript
+return this.isActive ? {'color': 'red'} : {}
+```
+
+如果用methods
+
+则是动态插入类命到class中, 让对应的类选择器生效的套路
+
+而style 可知赋值样式 , 并且优先级很高 , 用计算属性确实更加的合适
+
+
+
+## 提高封装
+
+![](assets\Tab-bar13.jpg)
+
+![](assets\Tab-bar12.jpg)
+
+![](assets\Tab-bar11.jpg)
 
