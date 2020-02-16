@@ -10,8 +10,8 @@ new本质就是一个语法糖
 
 帮我们做了三件事
 
-1. this = { }     创建了一个空对象
-2. this.prototype.- - proto - - = xxx.prototype
+1. var xxx = { }     创建了一个空对象
+2. this.prototype.- - proto - - = xxx.prototype   这里的this是一个临时对象
 3. return this
 
 
